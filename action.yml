@@ -1,0 +1,16 @@
+name: Run KiCad DRC
+description: Runs the KiCad DRC (design rules checker) on the provided .kicad_pcb file
+
+branding:
+  icon: "check"
+  color: "green"
+
+inputs:
+  pcb:
+    description: ".kicad_pcb file to run DRC on"
+    required: true
+runs:
+  using: "docker"
+  image: "docker://ghcr.io/maartin0/kicad-drc-action:v1"
+  args:
+    - ${{ inputs.pcb }}
